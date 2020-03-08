@@ -12,6 +12,6 @@ This is a Property Selling Website named Homex.
  > Instamojo API keys to put in .env file
  
 # Steps to run the project
-  1. navigate to the project folder using CMD or Terminal and run the following command composer update
+  1. Navigate to the project folder using CMD or Terminal and run the following command composer update
   2. Create a Database and run php artisan migrate using CMD or Terminal
   3. Finally run php artisan serve..... Your project will be available adt 127.0.0.1:8000

@@ -1,0 +1,77 @@
+CREATE TABLE  users  (
+   id  int  NOT NULL,
+   name  varchar(25)  NOT NULL,
+   email  varchar(25)  NOT NULL,
+   password  varchar(150)  NOT NULL,
+   phone  varchar(10)  DEFAULT NULL,
+   isAdmin  number(3,0) DEFAULT 0 NOT NULL
+);
+
+
+INSERT INTO  users  ( id ,  name ,  email ,  password , phone ,  isAdmin ) VALUES
+(1, 'Kureshi ', 'dqureshiumar@gmail.in', '$2y$10$ZgGVkodDbTsgwlZ.Q.cT7.4W6hc.dwLfN4rqU3hqX8o8gse.uZRAy', '9702310212', 1);
+INSERT INTO  users  ( id ,  name ,  email ,  password ,  phone ,  isAdmin ) VALUES
+(2, 'Umar', 'dqureshiumar@gmail.com','$2y$10$FFkooNq1MuUfCSlqxyjBhu72xzm4/x6kp6jBpRlokt0./H0V3Czki','8097777787', 0);
+
+
+INSERT INTO  users  ( id ,  name ,  email ,  password ,  phone ,  isAdmin ) VALUES
+(6, 'Bimalesh', 'sethbimalesh@gmail.com','$2y$10$FFkooNq1MuUfCSlqxyjBhu72xzm4/x6kp6jBpRlokt0./H0V3Czki','7039581571', 1);
+
+
+
+CREATE PROCEDURE GET_NAME_EMAIL AS
+NAME USERS.NAME%TYPE;
+EMAIL USERS.EMAIL%TYPE;
+CURSOR C_NAME_EMAIL IS SELECT NAME, EMAIL FROM USERS;
+BEGIN
+OPEN C_NAME_EMAIL;
+LOOP
+    FETCH C_NAME_EMAIL INTO NAME, EMAIL;
+    EXIT WHEN C_NAME_EMAIL%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE(NAME||'    '||EMAIL);
+END LOOP;
+CLOSE C_NAME_EMAIL;
+END;
+/
+
+begin 
+GET_NAME_EMAIL;
+end;
+/
+
+CREATE PROCEDURE GET_NAME_PHONE AS
+NAME USERS.NAME%TYPE;
+PHONE USERS.PHONE%TYPE;
+CURSOR C_NAME_PHONE IS SELECT NAME, PHONE FROM USERS;
+BEGIN
+OPEN C_NAME_PHONE;
+LOOP
+    FETCH C_NAME_PHONE INTO NAME, PHONE;
+    EXIT WHEN C_NAME_PHONE%NOTFOUND;
+    DBMS_OUTPUT.PUT_LINE(NAME||'    '||PHONE);
+END LOOP;
+CLOSE C_NAME_PHONE;
+END;
+/
+
+
+
+begin 
+GET_NAME_PHONE;
+end;
+/
+
+
+TRIGGER
+CREATE OR REPLACE TRIGGER NEW_USER 
+AFTER INSERT ON USERS
+FOR EACH ROW 
+WHEN (NEW.ID > 0) 
+DECLARE 
+BEGIN 
+    DBMS_OUTPUT.put_line('NEW USER ADDED SUCCESSFULLY');
+   dbms_output.put_line('NAME : ' || :NEW.NAME); 
+   dbms_output.put_line('EMAIL ID : ' || :NEW.EMAIL); 
+   dbms_output.put_line('MOBILE NUMBER : ' || :NEW.PHONE); 
+END; 
+/

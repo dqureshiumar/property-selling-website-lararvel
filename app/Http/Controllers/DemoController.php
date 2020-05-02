@@ -71,7 +71,7 @@ class DemoController extends Controller
                     "buyer_name" => Auth::user()->name,
                     "send_email" => true,
                     "email" => Auth::user()->email,
-                    "redirect_url" => "http://127.0.0.1:8000/pay-success/$id/"
+                    "redirect_url" => "https://polar-forest-34810.herokuapp.com/$id/"
             ));
                 
             header('Location: ' . $response['longurl']);

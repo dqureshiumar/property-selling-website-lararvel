@@ -33,7 +33,7 @@
             <div class="container">
                 <div class="top-info hidden-sm-down">
                     <div class="call-header">
-                        <p><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:+919702310212"><font style="color:white">+91 9702310212</font></a></p>
+                        <p><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:"><font style="color:white">+91 9702310212</font></a></p>
                     </div>
                     <div class="address-header">
                         <p><i class="fa fa-map-marker" aria-hidden="true"></i> C/20,156,RSC-4, Malad(West)</p>

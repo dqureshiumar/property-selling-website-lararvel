@@ -15,7 +15,7 @@
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
                                 @if(auth()->user()->profile != NULL)
-                                    <img src="{{ asset('storage') }}/property_images/{{ auth()->user()->profile }}" class="rounded-circle">
+                                    <img src="{{ asset('storage') }}/profile/{{ auth()->user()->profile }}" class="rounded-circle">
                                 @else
                                 <a href="#">
                                     <img src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg" class="rounded-circle">

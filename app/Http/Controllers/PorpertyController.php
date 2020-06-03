@@ -199,8 +199,7 @@ class PorpertyController extends Controller
             $fileNameToStore= $filename.'_'.time().'.'.$extension;
             // Upload Image
             $path = $request->file('filename')->storeAs('public/property_images', $fileNameToStore);
-
-            $pathToFile = Storage::disk('public')->put('uploads/', $fileNameToStore);
+            
         } 
         else 
         {
@@ -209,7 +208,7 @@ class PorpertyController extends Controller
         $my_id = auth()->user()->id;
         $user = User::find($my_id);
         
-        $user->profile = $pathToFile;
+        $user->profile = $fileNameToStore;
         $user->save();
         return redirect('/profile');
     }

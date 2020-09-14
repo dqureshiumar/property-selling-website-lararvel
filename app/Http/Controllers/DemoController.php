@@ -71,7 +71,7 @@ class DemoController extends Controller
                     "buyer_name" => Auth::user()->name,
                     "send_email" => true,
                     "email" => Auth::user()->email,
-                    "redirect_url" => "http://127.0.0.1:8082/pay-success/$id/"
+                    "redirect_url" => "http://127.0.0.1:8000/pay-success/$id/"
             ));
                 
             header('Location: ' . $response['longurl']);
